@@ -1,0 +1,18 @@
+{% extends 'sidebar.html' %}
+
+
+
+{% block content %}
+
+<h2>{% if request.resolver_match.url_name == 'employer-create' %} 新增 {% else %} 編輯 {% endif %} 老闆資料</h2>
+
+<form method="post">
+  {% csrf_token %}    
+  {{ form.as_p }}
+  <button type="submit">儲存</button>
+</form>
+  <a href="{% url 'employer-list' %}">返回老闆列表頁</a>
+
+
+
+{% endblock %}
