@@ -27,3 +27,6 @@ class EmployerUpdate(UpdateView):
     model = Employer
     fields = '__all__'
 
+class EmployerDelete(DeleteView):
+    model = Employer
+    success_url = reverse_lazy('employer-list')

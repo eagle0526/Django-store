@@ -20,6 +20,7 @@
   <p>姓 : {{ employer.first_name }}</p>
   <p>名 : {{ employer.last_name }}</p>
   <p>年紀 : {{ employer.age }}</p>
+  <p><a href="{% url 'employer-delete' employer.id %}">點我刪除老闆</a></p>
   <hr>
 {% endfor %}
 
