@@ -42,3 +42,9 @@ class StoreCreate(CreateView):
     fields = '__all__'
     success_url = reverse_lazy('store-list')
 
+class StoreDetailView(generic.DetailView):
+    model = Store    
+
+class StoreUpdate(UpdateView):
+    model = Store
+    fields = "__all__"

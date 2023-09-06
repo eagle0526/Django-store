@@ -5,7 +5,7 @@
   {% for store in store_list %}
     <ul>
       <li>
-        <a href="">商店ID</a>: {{ store.id }}        
+        <a href="{{ store.get_absolute_url }}">商店ID</a>: {{ store.id }}        
       </li>      
       <li>店名: {{ store.title }}</li>            
       <li>介紹: {{ store.description }}</li>            
