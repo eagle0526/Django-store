@@ -1,0 +1,21 @@
+
+{% extends 'sidebar.html' %}
+
+{% block content %}
+  <h1>老闆資訊頁</h1>
+  <hr>
+  <p>
+    <a href="{% url 'employer-update' employer.id %}">id: {{ employer.id }}</a>
+    ----- 點我編輯老闆資訊
+  </p>
+  <p>first_name: {{ employer.first_name }} </p>
+  <p>last_name: {{ employer.last_name }} </p>
+  <p>age: {{ employer.age }} </p>
+  
+  <br>
+  <a href="{% url 'employer-list' %}">回到上一頁</a>
+  <br>
+  <br>
+
+
+{% endblock %}

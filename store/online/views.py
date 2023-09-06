@@ -20,5 +20,10 @@ class EmployerCreate(CreateView):
     fields = '__all__'
     success_url = reverse_lazy('employer-list')
 
+class EmployerDetailView(generic.DetailView):
+    model = Employer
 
+class EmployerUpdate(UpdateView):
+    model = Employer
+    fields = '__all__'
 
