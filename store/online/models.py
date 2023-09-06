@@ -18,6 +18,16 @@ class Employer(models.Model):
         return f'{self.first_name}-{self.last_name}'
 
 
+class Store(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    employer = models.ForeignKey(Employer, on_delete=models.SET_NULL, null=True)
+
+    def get_absolute_url(self):
+        return reverse('store-detail', args=[str(self.id)])
+    
+    def __str__(self):
+        return self.title
 
 
 
