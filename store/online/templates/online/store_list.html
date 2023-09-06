@@ -1,0 +1,18 @@
+{% extends 'sidebar.html' %}
+
+{% block content %}
+  <h1>商店列表</h1>
+  {% for store in store_list %}
+    <ul>
+      <li>
+        <a href="">商店ID</a>: {{ store.id }}        
+      </li>      
+      <li>店名: {{ store.title }}</li>            
+      <li>介紹: {{ store.description }}</li>            
+      <li><a href="">刪除商店</a></li>
+    </ul>
+  {% endfor %}
+  
+  <br>
+  <a href="{% url 'store-create' %}">新增商店</a>
+{% endblock %}

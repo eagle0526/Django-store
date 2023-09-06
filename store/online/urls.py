@@ -16,3 +16,10 @@ urlpatterns += [
 ]
 
 
+
+
+urlpatterns += [
+    path("stores/", views.StoreListView.as_view(), name='store-list'),
+    path("store/create/", views.StoreCreate.as_view(), name='store-create'),    
+]
+

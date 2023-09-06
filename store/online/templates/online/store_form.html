@@ -1,0 +1,12 @@
+
+{% extends 'sidebar.html' %}
+
+{% block content %}
+  <h2>{% if request.resolver_match.url_name == 'store-create' %}新增{% else %}編輯{% endif %} 商店</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">儲存</button>
+  </form>
+  <a href="{% url 'store-list' %}">返回列表</a>
+{% endblock %}
