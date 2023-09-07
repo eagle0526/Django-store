@@ -9,7 +9,7 @@
       </li>      
       <li>店名: {{ store.title }}</li>            
       <li>介紹: {{ store.description }}</li>            
-      <li><a href="">刪除商店</a></li>
+      <li><a href="{% url 'store-delete' store.id %}">刪除商店</a></li>
     </ul>
   {% endfor %}
   

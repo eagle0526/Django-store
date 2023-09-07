@@ -21,7 +21,16 @@
   <p>名 : {{ employer.last_name }}</p>
   <p>年紀 : {{ employer.age }}</p>
   <p><a href="{% url 'employer-delete' employer.id %}">點我刪除老闆</a></p>
+  <br>
+  <h3>老闆所擁有的餐廳</h3>
+  <p>{{ employer.store_set.all }}</p>
+  {% for store in employer.store_set.all %}
+    <ul>
+      <li>{{ store }}</li>
+    </ul>
+  {% endfor %}
   <hr>
+  
 {% endfor %}
 
 <a href="{% url 'employer-create' %}">新增老闆</a>

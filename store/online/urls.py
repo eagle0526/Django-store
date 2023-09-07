@@ -23,5 +23,6 @@ urlpatterns += [
     path("store/create/", views.StoreCreate.as_view(), name='store-create'),    
     path("store/<int:pk>", views.StoreDetailView.as_view(), name="store-detail"),
     path("store/<int:pk>/update/", views.StoreUpdate.as_view(), name="store-update"),    
+    path("store/<int:pk>/delete/", views.StoreDelete.as_view(), name="store-delete"), 
 ]
 

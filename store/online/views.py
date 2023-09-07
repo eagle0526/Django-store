@@ -48,3 +48,7 @@ class StoreDetailView(generic.DetailView):
 class StoreUpdate(UpdateView):
     model = Store
     fields = "__all__"
+
+class StoreDelete(DeleteView):
+    model = Store
+    success_url = reverse_lazy('store-list')    
