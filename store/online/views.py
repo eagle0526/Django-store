@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Employer, Store
+from .models import Employer, Store, Product
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -52,3 +52,12 @@ class StoreUpdate(UpdateView):
 class StoreDelete(DeleteView):
     model = Store
     success_url = reverse_lazy('store-list')    
+
+
+class ProductListView(generic.ListView):
+    model = Product
+
+class ProductCreate(CreateView):
+    model = Product
+    fields = '__all__'
+    success_url = reverse_lazy('product-list')

@@ -1,0 +1,18 @@
+{% extends 'sidebar.html' %}
+
+{% block content %}
+  <h1>產品列表</h1>
+  {% for product in product_list %}
+    <ul>
+      <li>
+        <a href="">產品ID</a>: {{ product.id }}        
+      </li>      
+      <li>產品名: {{ product.title }}</li>            
+      <li>價錢: {{ product.description }}</li>            
+      <li><a href="">刪除產品</a></li>
+    </ul>
+  {% endfor %}
+  
+  <br>
+  <a href="{% url 'product-create' %}">新增產品</a>
+{% endblock %}

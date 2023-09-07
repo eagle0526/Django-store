@@ -26,3 +26,13 @@ urlpatterns += [
     path("store/<int:pk>/delete/", views.StoreDelete.as_view(), name="store-delete"), 
 ]
 
+urlpatterns += [
+    path("products/", views.ProductListView.as_view(), name='product-list'),
+    path("product/create/", views.ProductCreate.as_view(), name='product-create'),    
+]
+
+
+
+
+
+
