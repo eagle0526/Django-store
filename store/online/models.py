@@ -35,6 +35,9 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     store = models.ManyToManyField(Store)
 
+    def display_store(self):        
+        return ', '.join(store.title for store in self.store.all()[:3])    
+
     def get_absolute_url(self):
         return reverse('product-detail', args=[str(self.id)])
 
