@@ -61,3 +61,15 @@ class ProductCreate(CreateView):
     model = Product
     fields = '__all__'
     success_url = reverse_lazy('product-list')
+
+
+class ProductDetailView(generic.DetailView):
+    model = Product    
+
+class ProductUpdate(UpdateView):
+    model = Product
+    fields = "__all__"    
+
+class ProductDelete(DeleteView):
+    model = Product
+    success_url = reverse_lazy('product-list')    

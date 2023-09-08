@@ -11,6 +11,17 @@
       <li>介紹: {{ store.description }}</li>            
       <li><a href="{% url 'store-delete' store.id %}">刪除商店</a></li>
     </ul>
+    <br>
+    <p>商店賣的產品</p>
+    {{ store.product_set.all }}
+    <br>
+    {% for product in store.product_set.all %}
+    <ul>
+      <li>產品名稱：{{ product.title }}</li>
+      <li>產品價錢：{{ product.price }}</li>
+    </ul>    
+    {% endfor %}
+    <hr>
   {% endfor %}
   
   <br>
