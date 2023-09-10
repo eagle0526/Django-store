@@ -26,3 +26,10 @@ from django.conf.urls import include
 urlpatterns += [
     path('online/', include('online.urls'))
 ]
+
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
+
+
