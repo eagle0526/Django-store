@@ -33,3 +33,10 @@ urlpatterns += [
 ]
 
 
+
+from . import views
+
+urlpatterns += [
+    # 其他 URL 配置
+    path('register/', views.register, name='register'),
+]
