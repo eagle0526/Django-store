@@ -1,6 +1,15 @@
 {% extends 'sidebar.html' %}
 
 {% block content %}
+
+  {% if perms.online.can_mark_store %}
+    <p>你有權限的話看得到我</p>
+  {% endif %}
+
+  {{ perms }}
+  <br>  
+  {{ perms.online }}
+
   <h1>商店列表</h1>
   {% for store in store_list %}
     <ul>

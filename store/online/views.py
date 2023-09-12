@@ -4,8 +4,11 @@ from .models import Employer, Store, Product
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+
+@login_required
 def index(request):
     num_employers = Employer.objects.all()
     num_stores = Store.objects.all()
@@ -20,9 +23,9 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-
-class EmployerListView(generic.ListView):
+class EmployerListView(LoginRequiredMixin, generic.ListView):
     model = Employer
 
 class EmployerCreate(CreateView):
@@ -42,10 +45,13 @@ class EmployerDelete(DeleteView):
     success_url = reverse_lazy('employer-list')
 
 
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 
-class StoreListView(generic.ListView):
+class StoreListView(PermissionRequiredMixin, generic.ListView):
     model = Store
+    permission_required = ('online.can_mark_store')    
+    raise_exception = True  # 如果用戶沒有權限，引發PermissionDenied異常    
 
 class StoreCreate(CreateView):
     model = Store

@@ -23,6 +23,9 @@ class Store(models.Model):
     description = models.TextField()
     employer = models.ForeignKey(Employer, on_delete=models.SET_NULL, null=True)
 
+    class Meta:        
+        permissions = (("can_mark_store", "Set store as noticed"),)    
+
     def get_absolute_url(self):
         return reverse('store-detail', args=[str(self.id)])
     
