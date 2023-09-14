@@ -50,7 +50,9 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 
 class StoreListView(PermissionRequiredMixin, generic.ListView):
     model = Store
-    permission_required = ('online.can_mark_store')    
+    # permission_required = ('online.can_mark_store')    
+    # 權限改成這個
+    permission_required = ('online.view_store')    
     raise_exception = True  # 如果用戶沒有權限，引發PermissionDenied異常    
 
 class StoreCreate(CreateView):
